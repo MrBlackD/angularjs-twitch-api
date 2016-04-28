@@ -1,0 +1,14 @@
+<div ng-controlles="View1Ctrl">
+	<h2>Twitch.tv Broadcasts</h2>
+	<form>
+		<button ng-click="get()">Get List Of Broadcasts </button>
+		<input ng-model="query" placeholder="filter" ng-show="response">
+	</form>
+	<table>
+		<tr ng-repeat="x in response.streams|filter:query|orderBy:response.streams.viewers">
+			<td >
+				<strong><a href="#/view/{{$index}}">{{x.channel.display_name}}[{{x.channel.broadcaster_language}}]</a></strong> - {{x.channel.game}} - {{x.viewers}} viewers <span class="del" ng-click="response.streams.splice($index,1)">&#10005;</span>
+			</td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,32 @@
+<div ng-controlles="View2Ctrl" class="container">
+	<a style="float:left" href="#/view">Back</a>
+	<h3>
+
+		Channel name:<span ng-hide="edit_name">{{response.streams[id].channel.display_name}}</span>
+		<input ng-show="edit_name" type="text" ng-model="response.streams[id].channel.display_name" style="width:{{response.streams[id].channel.display_name.length*10||10}}px">
+		<label><input type="checkbox" ng-model="edit_name"><span class="edit">&#9998;</span></label>
+	</h3>
+	<p>
+		Broadcast title:<span ng-hide="edit_status">{{response.streams[id].channel.status}}</span>
+		<input ng-show="edit_status" type="text" ng-model="response.streams[id].channel.status" style="width:{{response.streams[id].channel.status.length*10||10}}px">
+		<label><input type="checkbox" ng-model="edit_status"><span class="edit">&#9998;</span></label>
+	</p>
+	<p>
+		Broadcaster language: <span ng-hide="edit_lang">{{response.streams[id].channel.broadcaster_language}}</span>
+		<input ng-show="edit_lang" type="text" ng-model="response.streams[id].channel.broadcaster_language" style="width:{{response.streams[id].channel.broadcaster_language.length*10||10}}px">
+		<label><input type="checkbox" ng-model="edit_lang"><span class="edit">&#9998;</span></label> 
+
+	</p>
+	<p>
+		Link: <span ng-hide="edit_url"><a ng-href="{{response.streams[id].channel.url}}">{{response.streams[id].channel.url}}</a></span>
+		<input ng-show="edit_url" type="text" ng-model="response.streams[id].channel.url" style="width:{{response.streams[id].channel.url.length*10||10}}px">
+		<label><input type="checkbox" ng-model="edit_url"><span class="edit">&#9998;</span></label> 
+
+	</p>
+	<p>Playing <span ng-hide="edit_game">{{response.streams[id].channel.game}}</span> 
+	<input ng-show="edit_game" type="text" ng-model="response.streams[id].channel.game" style="width:{{response.streams[id].channel.game.length*10||10}}px">
+	<label><input type="checkbox" ng-model="edit_game"><span class="edit">&#9998;</span></label>
+	| {{response.streams[id].viewers}} viewers </p>
+	<button ng-click="response.streams.splice(id,1)">DELETE</button>
+	
+</div>
